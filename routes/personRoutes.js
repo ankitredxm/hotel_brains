@@ -63,4 +63,21 @@ res.status(200).json(response);
     res.status(400).json({error: err.message});
   }
 });
+
+
+router.delete('/:id',async (req,res)=>{
+  try{
+    const personid=req.params.id;
+    const response=await Person.findByIdAndDelete(personid);
+    if(!response){
+      return res.status(400).json({error:"Person not found"});
+    }
+    console.log("data deleted");
+    res.status(200).json({message:"data deleted successfully"});
+  }
+  catch(err){
+    console.error('Error deleting data',err);
+    res.status(400).json({error: err.message});
+  }
+});
 module.exports=router;
