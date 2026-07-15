@@ -26,9 +26,9 @@ app.get("/",(req,res)=>{
 
 
 const personRoutes=require('./routes/personRoutes');
-app.use('/person',localAuth,personRoutes);
+app.use('/person',personRoutes);
 const menuRoutes=require('./routes/menuRoutes');
-app.use('/menu',localAuth,menuRoutes);
+app.use('/menu',menuRoutes);
 
 
 
